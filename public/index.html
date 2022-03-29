@@ -1,0 +1,44 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Memory Game</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+
+  <div class="time-container">
+    Timer
+
+    <label id="minutes">00</label>
+    <label id="colon">:</label>
+    <label id="seconds">00</label>
+    <button onclick="stopTimer">STOP</button>
+    <script type="text/javascript">
+      var minutesLabel = document.getElementById("minutes");
+      var secondsLabel = document.getElementById("seconds");
+      var totalSeconds = 0;
+      let interval = null;
+      setInterval(setTime, 1000);
+
+      function setTime() {
+        ++totalSeconds;
+        secondsLabel.innerHTML = pad(totalSeconds % 60);
+        minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+      }
+      function stopTimer() {
+        clearInterval(interval);
+      }
+
+      function pad(val) {
+        var valString = val + "";
+        if (valString.length < 2) return "0" + valString;
+        else return valString;
+      }
+    </script>
+  </div>
+
+</html>
