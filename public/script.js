@@ -1,5 +1,6 @@
-var minutesLabel = document.getElementById("minutes");
-      var secondsLabel = document.getElementById("seconds");
+
+var minutesLabel = "minutes";
+      var secondsLabel = "seconds";
       var totalSeconds = 0;
       let interval = null;
       setInterval(setTime, 1000);

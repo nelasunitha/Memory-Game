@@ -16,13 +16,13 @@
     <label id="minutes">00</label>
     <label id="colon">:</label>
     <label id="seconds">00</label>
-    <button onclick="stopTimer">STOP</button>
+    <!-- <button onclick="stopTimer">STOP</button> -->
     <script type="text/javascript">
       var minutesLabel = document.getElementById("minutes");
       var secondsLabel = document.getElementById("seconds");
       var totalSeconds = 0;
-      let interval = null;
-      setInterval(setTime, 1000);
+      let timerInterval;
+      timerInterval = setInterval(setTime, 1000);
 
       function setTime() {
         ++totalSeconds;
@@ -30,7 +30,7 @@
         minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
       }
       function stopTimer() {
-        clearInterval(interval);
+        clearInterval(timerInterval);
       }
 
       function pad(val) {
